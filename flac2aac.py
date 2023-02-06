@@ -9,10 +9,9 @@ config.read('config.ini')
 flac_folder = config['DEFAULT']['flac_folder']
 destination_folder = config['DEFAULT']['destination_folder']
 delete_flac = config.getboolean('DEFAULT', 'delete_flac')
-move_to_itunes_folder = config.getboolean('DEFAULT', 'move_to_itunes_folder')
-metadata_comment = config.getboolean('DEFAULT', 'metadata_comment')
-encoder = config.getboolean('DEFAULT', 'encoder')
-bitrate = config.getboolean('DEFAULT', 'bitrate')
+metadata_comment = config['DEFAULT']['metadata_comment']
+encoder = config['DEFAULT']['encoder']
+bitrate = config['DEFAULT']['bitrate']
 
 new_file_extension = 'm4a'
 
@@ -46,7 +45,7 @@ def main():
                 m4a_file = os.path.join(destination_folder, os.path.relpath(m4a_file, flac_folder))
 
                 convert_to_m4a(file_path, file_name, file_extension[1:])
-                if move_to_itunes_folder == True:
+                if flac_folder != destination_folder:
                     move_to_destination(file_path, file_name, f"{new_file_extension}")
     exit(93)
 
