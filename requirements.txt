@@ -1,3 +1,4 @@
 ffmpeg_progress_yield
 tqdm
 mutagen
+-e git+https://github.com/totaldebug/pyarr.git#egg=pyarr
